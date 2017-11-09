@@ -170,3 +170,40 @@ g) Classes
         }
     }
 
+
+2. Node Modules
+-----------------
+
+a) All import calls are cached. This means if we reimport the same thing, it will not be re-evaluated, it will just be read from the cache. This is also why we can safely import the same thing multiple times from multiple files.
+
+
+b) Every module gets its own private scope. For example,
+
+    In config.js, if you have:
+
+    var env = process.env;
+    console.log('config');
+
+    In server.js, you have:
+
+    import './config';
+    console.log(env); --> This will not work because its defined in config.js
+
+c) Usually when we import something, we import it into a variable like this:
+
+    import config from './config';
+
+    When we import with this syntax, we're importing the default exported object into the config module.
+
+
+d) To import non-default export, we need to use the destructure syntax. For example:
+
+    export const nodeEnv = env.NODE_ENV || 'development';
+
+    import { nodeEnv } from './config';
+
+3. The HTTP/HTTPS Modules
+--------------------------
+
+a)
+
