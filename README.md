@@ -96,6 +96,69 @@ c) Defining Objects
 
     const { PI, sum, square } = X; --> if we used the old syntax this would take up 3 lines
 
+    For React, we could change it from:
+
+    const Component = require('react').Component
+
+    to:
+
+    const { Component } = require('react');
+
+d) Destructuring in Functions
+-------------------------------
+    i) Also works in functions. If the argument is an object, we can also destructure them:
+
+    const toDecimal = ({base, number}) => {
+        return parseInt(number, base);
+    };
+
+    console.log(toDecimal({ base: 2, number: 101 })); // 5
+
+    We can also put default values if they aren't specified:
+
+    const toDecimal = ({base = 2, number}) => {
+        return parseInt(number, base);
+    };
+
+    console.log(toDecimal({ number: 101 })); // 5
+
+e) Rest parameters
+-------------------
+    i) Rest parameters can caputre the remaining arguments into an array like numbers. For example,
+
+    const toDecimal = (base, ...numbers) => {
+        console.log(numbers); // [101, 111, 1010]
+
+        return numbers.map(number => parseInt(number, base));
+    };
+
+    console.log(toDecimal(2, 101, 111, 1010)); // [5, 7, 10]
+
+    ii) We can also use the three dots operator to pass array elements as positional arguments. For example,
+
+    const toDecimal = (base, ...numbers) => {
+        console.log([0, ...numbers]); // [0, 101, 111, 1010]
+
+        return numbers.map(number => parseInt(number, base));
+    };
+
+    console.log(toDecimal(2, 101, 111, 1010)); // [5, 7, 10]
+
+f) New Import and Export syntax
+--------------------------------
+
+    Old:
+    const fs = require('fs');
+    const React, { Component } = require('react');
+
+    New:
+    import fs from 'fs';
+    import React, { Component } from 'react';
+
+    Cannot be compiled on Node alone. Require downloading babel for them to be able to compile such code.
+
+
+
 
 
 
