@@ -288,3 +288,9 @@ d) To import non-default export, we need to use the destructure syntax. For exam
 --------------------
 
     a) We don't usually work with React elements directly like that, instead we use components. For example, the top level component is usually an App component, and we define the component as a constant.
+
+    b) Make sure to use PropTypes to define the data type.
+
+    c) Also use PropTypes to specify if it's required.
+
+    d) PropTypes can also be used to define default values, if none is specified.

@@ -11,10 +11,14 @@ const App = (props) => {
 };
 
 App.propTypes = {
-    headerMessage: PropTypes.string
+    headerMessage: PropTypes.string.isRequired
+};
+
+App.defaultProps = {
+    headerMessage: 'Hello!!'
 };
 
 ReactDOM.render(
-    <App headerMessage="Hello props!" />,
+    <App />,
     document.getElementById('root')
 );
