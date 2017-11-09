@@ -157,9 +157,16 @@ f) New Import and Export syntax
 
     Cannot be compiled on Node alone. Require downloading babel for them to be able to compile such code.
 
+g) Classes
+-----------
+    A class is a wrapper around the constructor function, and we can extend other classes and customize the constructor function when we need to.
 
+    We're going to use class syntax to define React components. This is useful to define stateful React components.
 
-
-
-
+    class Footer extends Component {
+        constructor(props) {
+            super(props);
+            //...
+        }
+    }
 
