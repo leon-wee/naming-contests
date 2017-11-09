@@ -173,6 +173,7 @@ g) Classes
 
 2. Node Modules
 -----------------
+Between config.js and server.js communications
 
 a) All import calls are cached. This means if we reimport the same thing, it will not be re-evaluated, it will just be read from the cache. This is also why we can safely import the same thing multiple times from multiple files.
 
@@ -205,5 +206,49 @@ d) To import non-default export, we need to use the destructure syntax. For exam
 3. The HTTP/HTTPS Modules
 --------------------------
 
-a)
+    a) HTTPS Example
+
+    import https from 'https';
+    https.get('https://www.lynda.com', res => {
+         console.log('Response status code: ', res.statusCode);
+
+         res.on('data', chunk => {
+             console.log(chunk.toString());
+         });
+     });
+
+    b) HTTP Example
+
+    This code wait for a client to connect to the server on 8080.
+
+    import http from 'http';
+    const server = http.createServer();
+
+    // run the server on a specific port
+    server.listen(8080);
+
+    server.on('request', (req, res) => {
+        res.write('Hello HTTP!\n'); //can use this to stream data to the user
+
+        setTimeout(() => {
+            res.write('I can stream!\n');
+        }, 3000); //wait 3 seconds
+    });
+
+    We can equivalently write it this way
+
+    import http from 'http';
+    const server = http.createServer((req, res) => {
+        res.write('Hello HTTP!\n'); //can use this to stream data to the user
+
+        setTimeout(() => {
+            res.write('I can stream!\n');
+        }, 3000); //wait 3 seconds
+    });
+
+    server.listen(8080);
+
+    Move the server.on('request')'s function into the createServer as an argument to do the same thing.
+
+4.
 
