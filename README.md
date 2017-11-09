@@ -275,3 +275,11 @@ d) To import non-default export, we need to use the destructure syntax. For exam
 
     Refactor out certain parts of the html files. For example, the header file into a header.ejs.
 
+5. React Basics
+-----------------
+
+    a) React takes the approach of generating HTML with JavaScript. We do this because we get the full power of JavaScript to work with our data, and before we generate the HTML, we can represent it as a JavaScript object tree, which allows React to compare it against future versions of the same tree. We can also generate partial HTML nodes to take to the browser. This concept is known in React as the virtual DOM.
+
+    b) With React, we simply describe HTML elements as objects, and then React put them together into a tree. And it keeps a copy of this tree in memory, so when things change, React will recalculate the tree, and actually compare trees. And it takes to the browser only the difference between the new tree and the old tree. And this makes React very efficient.
+
+    c) Some subtle differences include specifying classes in HTML tags. We need to use, for example, <div className="something"></div> and not <div class="something"></div>
