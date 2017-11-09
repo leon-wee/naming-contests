@@ -283,3 +283,8 @@ d) To import non-default export, we need to use the destructure syntax. For exam
     b) With React, we simply describe HTML elements as objects, and then React put them together into a tree. And it keeps a copy of this tree in memory, so when things change, React will recalculate the tree, and actually compare trees. And it takes to the browser only the difference between the new tree and the old tree. And this makes React very efficient.
 
     c) Some subtle differences include specifying classes in HTML tags. We need to use, for example, <div className="something"></div> and not <div class="something"></div>
+
+6. React Components
+--------------------
+
+    a) We don't usually work with React elements directly like that, instead we use components. For example, the top level component is usually an App component, and we define the component as a constant.
