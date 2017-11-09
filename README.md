@@ -294,3 +294,7 @@ d) To import non-default export, we need to use the destructure syntax. For exam
     c) Also use PropTypes to specify if it's required.
 
     d) PropTypes can also be used to define default values, if none is specified.
+
+    e) Components lifecycle: Sometimes when we mount HTML elements, there are things we want to do like AJAX calls, or set timers and listeners.
+
+    And at the end of the components lifecycle we want to remove these timers and listeners. This is referred to as the lifecycle of components
