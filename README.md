@@ -250,5 +250,28 @@ d) To import non-default export, we need to use the destructure syntax. For exam
 
     Move the server.on('request')'s function into the createServer as an argument to do the same thing.
 
-4.
+4. EJS Template Language
+--------------------------
+
+    a) Include this line: server.set('view engine', 'ejs');
+
+    b) Have in server.js:
+
+    server.get('/', (req, res) => {
+        res.render('index', {
+            content: 'Hello Express and EJS!'
+        });
+    });
+
+    Have in views/index.ejs
+
+    <%= content %>
+
+    c) If you wanna use html strings, than = will escape it. To avoid this use:
+
+    <%- content %>
+
+    d) Supports partial views
+
+    Refactor out certain parts of the html files. For example, the header file into a header.ejs.
 
