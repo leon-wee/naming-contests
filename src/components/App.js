@@ -1,7 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 import Header from './Header';
 import ContestPreview from './ContestPreview';
-import data from '../testData';
 
 class App extends React.Component {
 
@@ -14,9 +14,14 @@ class App extends React.Component {
     //put it on the page == mount
     componentDidMount() {
         //timers, listeners
-        this.setState({
-            contests: data.contests
-        });
+        //ajax requests, it's a promise object
+        axios.get('/api/contests')
+            .then(resp => {
+                this.setState({
+                    contests: resp.data.contests
+                });
+            })
+            .catch(console.errpr)
     }
 
     //remove the html elements from the page == unmount
