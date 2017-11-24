@@ -21,7 +21,7 @@ class App extends React.Component {
                     contests: resp.data.contests
                 });
             })
-            .catch(console.errpr)
+            .catch(console.error)
     }
 
     //remove the html elements from the page == unmount
