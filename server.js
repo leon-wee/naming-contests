@@ -16,12 +16,17 @@ server.use(sassMiddleware({
 //magic line
 server.set('view engine', 'ejs');
 
-import './serverRender';
+import serverRender from './serverRender';
 
 server.get('/', (req, res) => {
-    res.render('index', {
-        content: '...'
-    });
+    serverRender()
+        .then(({ initialMarkup, initialData }) => {
+            res.render('index', {
+                initialMarkup,
+                initialData
+            });
+        })
+        .catch(console.error);
 });
 
 server.use('/api', apiRouter);
