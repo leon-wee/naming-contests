@@ -28,6 +28,20 @@ class App extends React.Component {
         //clean timers, listeners
     }
 
+    fetchContestList = () => {
+        pushState(
+            { currentContestId: null},
+            '/'
+        );
+
+        api.fetchContestList().then(contests => {
+            this.setState({
+                currentContestId: null,
+                contests
+            })
+        });
+    }
+
     fetchContest = (contestId) => {
         pushState(
             { currentContestId: contestId },
@@ -59,7 +73,9 @@ class App extends React.Component {
 
     currentContent = () => {
         if (this.state.currentContestId) {
-            return <Contest {...this.currentContest()} />;
+            return <Contest
+                    contestListClick={this.fetchContestList}
+                    {...this.currentContest()} />;
         }
 
         return <ContestList
